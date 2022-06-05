@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a120f39d9aac9648a2ec7b22bcc241d, type: 3}
+  m_Name: WasteTypeListSO
+  m_EditorClassIdentifier: 
+  list:
+  - {fileID: 11400000, guid: f5d2d61b035163b418ec2eaf0dc14c72, type: 2}
+  - {fileID: 11400000, guid: f50554909d1f9b444a41afb0983a8ebf, type: 2}
+  - {fileID: 11400000, guid: 40dc574cd313d6740b7613702724d1d0, type: 2}
+  - {fileID: 11400000, guid: b1dc5e96f95ef9d40a57945f7edebe84, type: 2}
+  - {fileID: 11400000, guid: d7643cfb410d87644a32428dfb122cff, type: 2}
+  - {fileID: 11400000, guid: ee1e35c27a686cf42b90a4a0a160f437, type: 2}
+  - {fileID: 11400000, guid: 069ae4a5b52c93e4f9387a85e4478c4b, type: 2}
+  - {fileID: 11400000, guid: 1f93bceca2fb5ec499ea183b18d88bb7, type: 2}
