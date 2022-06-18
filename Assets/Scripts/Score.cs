@@ -15,18 +15,22 @@ public class Score : MonoBehaviour
     private int lifeCount;
 
     public static Score Instance;
-    // Start is called before the first frame update
-    private void Start()
-    {
-        point.text = "0";
-        erro.text = "0";
-        life.text = "7";
 
-        pointCount = 0;
-        erroCount = 0;
-        lifeCount = 7;
+
+
+    public void StartScore()
+    {
+        point.text = (GameManager.Instance.GetPointScoreValue()).ToString();
+        erro.text = (GameManager.Instance.GetErroScoreValue()).ToString();
+        life.text = (GameManager.Instance.GetLifeScoreValue()).ToString();
+
+        pointCount = GameManager.Instance.GetPointScoreValue();
+        erroCount = GameManager.Instance.GetErroScoreValue();
+        lifeCount = GameManager.Instance.GetLifeScoreValue();
 
         life.text = $"{lifeCount}";
+
+        
     }
 
     private void Awake()

@@ -6,9 +6,17 @@ using UnityEngine.EventSystems;
 public class Bin : MonoBehaviour, IDropHandler
 {
     [SerializeField] WasteTypeSO wasteType;
+    private bool isOnBin = false;
+    public static Bin Instance;
+    private Animator animator;
+    [SerializeField] private GameObject ligthAnim;
 
-
-     //   WasteTypeListSO wasteTypeList = Resources.Load<WasteTypeListSO>(typeof(WasteTypeListSO).Name);
+    private void Start()
+    {
+        Instance = this;
+        animator = ligthAnim.GetComponent<Animator>();
+        ligthAnim.SetActive(false);
+    }
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -18,18 +26,42 @@ public class Bin : MonoBehaviour, IDropHandler
         {
             if(GetWasteBin() == grabResidue.GetWasteType())
             {
+                ligthAnim.transform.position = gameObject.transform.position;
+                ligthAnim.SetActive(true);
+                animator.SetBool("animateLigth", true);
+                isOnBin = true;
                 Score.Instance.SetTPointScore();
                 Destroy(grabResidue.gameObject);
+                isOnBin = false;
+            }
+            else if(GetWasteBin() != grabResidue.GetWasteType())
+            {
+                animator.SetBool("animateLigth", false);
+                isOnBin = true;
+                
+                Score.Instance.SetTErroScore();
+                Destroy(grabResidue.gameObject);
+                isOnBin = false;
             }
             else
             {
-                Score.Instance.SetTErroScore();
-                Destroy(grabResidue.gameObject);
+                animator.SetBool("animateLigth", false);
+                isOnBin = false;
+                DragDrop.Instance.OnDrop();
             }
+        }
+        else
+        {
+            isOnBin = true;
         }
     }
     private  WasteTypeSO GetWasteBin()
     {
         return this.wasteType;
+    }
+
+    public bool GetPositionStatus()
+    {
+        return isOnBin;
     }
 }
